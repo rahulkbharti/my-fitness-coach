@@ -29,6 +29,13 @@ export const DayWorkoutSchema = z.object({
 
 // 2. Main Schema matching your MOCK_PLAN
 export const FitnessPlanSchema = z.object({
+  name: z.string().describe("User's name"),
+  focus: z.string().describe("Primary fitness goal, e.g., 'Muscle Gain'"),
+  split: z.string().describe("Workout split type, e.g., 'Push/Pull/Legs'"),
+  totalCalories: z.number().describe("Daily calorie target"),
+  workoutDuration: z
+    .string()
+    .describe("Average workout duration, e.g., '60 mins'"),
   summary: z
     .string()
     .describe("A warm, personalized 2-sentence summary of the plan"),

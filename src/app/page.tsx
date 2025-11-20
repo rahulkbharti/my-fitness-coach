@@ -1,10 +1,26 @@
 import Link from "next/link";
 import { ArrowRight, Dumbbell, Utensils, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button"; // Assuming shadcn/ui
+// import { google } from '@ai-sdk/google';
+// import { experimental_generateImage as generateImage } from 'ai';
+// import { generateVoiceAction } from "@/actions/generateVoice";
+
+
+// const { image } = await generateImage({
+//   model: google.image('gemini-2.5-pro'),
+//   prompt: 'A futuristic cityscape at sunset',
+//   aspectRatio: '16:9',
+// });
+
+// console.log('Generated Image URL:', image);
+
+
 
 export default function Home() {
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black to-slate-900 text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-black to-slate-900 text-white">
 
       {/* --- HERO SECTION --- */}
       <section className="container mx-auto max-w-[1100px] flex flex-col items-center text-center py-24 px-4">

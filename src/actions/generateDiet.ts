@@ -27,6 +27,8 @@ export async function generatePlanAction(data: UserProfileSchema) {
       1. Create a weekly workout schedule based on their experience level.
       2. Create a daily meal plan that fits their goal (Calorie deficit for weight loss, Surplus for muscle gain).
       3. Ensure the tone is encouraging and professional.
+      4. Dont add Rest Days in the workout schedule.
+      5. Use the FitnessPlanSchema to format the output strictly.
     `;
 
     const { object } = await generateObject({
