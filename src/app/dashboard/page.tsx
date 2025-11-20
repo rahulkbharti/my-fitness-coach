@@ -11,14 +11,34 @@ import {
     Flame,
     Play,
     Volume2,
-    Download,
+    // Download,
     RefreshCcw,
     Image as ImageIcon,
-    ChevronRight
+    // ChevronRight
 } from "lucide-react";
 import { createDietScript, createWorkoutScript } from "@/lib/script-builder";
 import { generateVoiceAction } from "@/actions/generateVoice";
 import { useRouter } from "next/navigation";
+
+// --- Type Definitions ---
+type Exercise = {
+    name: string;
+    sets: number | string;
+    reps: string;
+    rest: string;
+    focus: string;
+    description: string;
+};
+
+type Meal = {
+    meal: string;
+    name: string;
+    calories: number;
+    protein: string;
+    carbs: string;
+    fats: string;
+    items: string[];
+};
 
 // --- 1. MOCK DATA (This is what your AI will eventually return) ---
 const MOCK_PLAN = {
@@ -82,7 +102,7 @@ const StatCard = ({ icon: Icon, label, value, color }: { icon: React.ElementType
 );
 
 const TabButton = ({ id, label, icon: Icon, activeTab, onClick }: { id: string, label: string, icon: React.ElementType, activeTab: string, onClick: () => void }) => (
-    <button
+    <button type="button"
         onClick={onClick}
         className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all ${activeTab === id
             ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20"
@@ -94,7 +114,7 @@ const TabButton = ({ id, label, icon: Icon, activeTab, onClick }: { id: string, 
     </button>
 );
 
-const ExerciseCard = ({ exercise }: { exercise: any }) => (
+const ExerciseCard = ({ exercise }: { exercise: Exercise }) => (
     <div className="group relative bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-slate-600 transition-all">
         <div className="flex justify-between items-start">
             <div className="flex-1">
@@ -116,10 +136,10 @@ const ExerciseCard = ({ exercise }: { exercise: any }) => (
                 </div>
             </div>
             <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="p-2 bg-slate-800 hover:bg-blue-600 hover:text-white rounded-lg text-slate-400 transition-colors" title="Show Visual">
+                <button type="button" className="p-2 bg-slate-800 hover:bg-blue-600 hover:text-white rounded-lg text-slate-400 transition-colors" title="Show Visual">
                     <ImageIcon size={18} />
                 </button>
-                <button className="p-2 bg-slate-800 hover:bg-green-600 hover:text-white rounded-lg text-slate-400 transition-colors" title="How To Video">
+                <button type="button" className="p-2 bg-slate-800 hover:bg-green-600 hover:text-white rounded-lg text-slate-400 transition-colors" title="How To Video">
                     <Play size={18} />
                 </button>
             </div>
@@ -127,7 +147,7 @@ const ExerciseCard = ({ exercise }: { exercise: any }) => (
     </div>
 );
 
-const MealCard = ({ meal }: { meal: any }) => (
+const MealCard = ({ meal }: { meal: Meal }) => (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col md:flex-row gap-6 items-start md:items-center">
         <div className="flex-1">
             <span className="text-xs font-bold tracking-wider text-blue-400 uppercase mb-1 block">{meal.meal}</span>
@@ -147,7 +167,7 @@ const MealCard = ({ meal }: { meal: any }) => (
                 <div className="flex justify-between w-24"><span className="text-slate-500">Fats</span> <span className="text-white">{meal.fats}</span></div>
             </div>
         </div>
-        <button className="w-full md:w-auto px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 text-sm font-medium transition-colors flex items-center justify-center gap-2">
+        <button type="button" className="w-full md:w-auto px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 text-sm font-medium transition-colors flex items-center justify-center gap-2">
             <ImageIcon size={16} /> <span className="md:hidden">See Food</span>
         </button>
     </div>
@@ -175,7 +195,6 @@ export default function DashboardPage() {
                 if (!stored) {
                     localStorage.setItem("fitnessPlan", JSON.stringify(MOCK_PLAN));
                 }
-                setWorkoutScript(createWorkoutScript(parsedPlan, selectedDay));
                 setDietScript(createDietScript(parsedPlan));
 
                 // Welcome message
@@ -240,7 +259,7 @@ export default function DashboardPage() {
                 <section className="mb-8">
                     <div className="flex justify-between items-center mb-2">
                         <h2 className="text-3xl font-bold text-white mb-2">Ready to crush it, {plan.name}? 🚀</h2>
-                        <button onClick={handleGenerateNewPlan} className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-medium transition-colors">
+                        <button type="button" onClick={handleGenerateNewPlan} className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-medium transition-colors">
                             <RefreshCcw size={14} />
                             New Plan
                         </button>
@@ -293,7 +312,7 @@ export default function DashboardPage() {
                             <div className="grid gap-4">
                                 <div className="flex items-center justify-between mb-2">
                                     <h3 className="text-xl font-bold text-white">{plan.workout.schedule[selectedDay].day}</h3>
-                                    <button className="text-xs flex items-center gap-1 text-blue-400 hover:underline" onClick={() => ReadAloud(workoutScript)}>
+                                    <button type="button" className="text-xs flex items-center gap-1 text-blue-400 hover:underline" onClick={() => ReadAloud(workoutScript)}>
                                         <Volume2 size={14} /> Read Routine
                                     </button>
                                 </div>
@@ -314,7 +333,7 @@ export default function DashboardPage() {
                         >
                             <div className="flex justify-between items-center">
                                 <h3 className="text-xl font-bold text-white">Daily Meal Plan</h3>
-                                <button className="text-xs flex items-center gap-1 text-green-400 hover:underline" onClick={() => ReadAloud(dietScript)}>
+                                <button type="button" className="text-xs flex items-center gap-1 text-green-400 hover:underline" onClick={() => ReadAloud(dietScript)}>
                                     <Volume2 size={14} /> Listen to Plan
                                 </button>
                             </div>
@@ -337,7 +356,7 @@ export default function DashboardPage() {
                                     <Flame className="text-orange-500" /> Daily Motivation
                                 </h3>
                                 <blockquote className="text-lg text-slate-300 italic border-l-4 border-orange-500 pl-4 py-2">
-                                    "{plan.motivation}"
+                                    &quot;{plan.motivation}&quot;
                                 </blockquote>
                             </div>
 

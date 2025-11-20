@@ -37,7 +37,8 @@ export default function UserDetailsForm() {
     });
 
     const { register, handleSubmit, formState: { errors }, trigger, watch } = form;
-    const formValues = watch();
+    const goal = watch("goal");
+    const dietaryPreference = watch("dietaryPreference");
 
     // VALIDATION LOGIC
     const nextStep = async () => {
@@ -192,7 +193,7 @@ export default function UserDetailsForm() {
                                 <label className="text-sm font-medium text-slate-300">Main Goal</label>
                                 <div className="grid grid-cols-2 gap-3">
                                     {["Weight Loss", "Muscle Gain", "Endurance", "Maintenance"].map((g) => (
-                                        <label key={g} className={`p-3 rounded-lg border cursor-pointer transition-all ${isClient && formValues.goal === g ? "bg-purple-500/20 border-purple-500 text-white" : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-600"}`}>
+                                        <label key={g} className={`p-3 rounded-lg border cursor-pointer transition-all ${isClient && goal === g ? "bg-purple-500/20 border-purple-500 text-white" : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-600"}`}>
                                             <input type="radio" value={g} {...register("goal")} className="hidden" />
                                             <span className="text-center block">{g}</span>
                                         </label>
@@ -236,7 +237,7 @@ export default function UserDetailsForm() {
                                 <label className="text-sm font-medium text-slate-300">Dietary Preference</label>
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                                     {["Vegetarian", "Non-Veg", "Vegan", "Keto", "Paleo"].map((d) => (
-                                        <label key={d} className={`p-3 rounded-lg border cursor-pointer transition-all ${isClient && formValues.dietaryPreference === d ? "bg-green-500/20 border-green-500 text-white" : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-600"}`}>
+                                        <label key={d} className={`p-3 rounded-lg border cursor-pointer transition-all ${isClient && dietaryPreference === d ? "bg-green-500/20 border-green-500 text-white" : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-600"}`}>
                                             <input type="radio" value={d} {...register("dietaryPreference")} className="hidden" />
                                             <span className="text-center block text-sm">{d}</span>
                                         </label>
@@ -280,7 +281,7 @@ export default function UserDetailsForm() {
                         // FIXED: Moved handleSubmit here. It ONLY fires when this button is clicked.
                         <button
                             type="button"
-                            onClick={handleSubmit(onFinalSubmit as any)}
+                            onClick={handleSubmit(onFinalSubmit)}
                             disabled={isLoading}
                             className="flex items-center px-8 py-3 rounded-lg bg-linear-to-r from-blue-500 to-purple-500 text-white font-bold hover:opacity-90 transition-opacity"
                         >

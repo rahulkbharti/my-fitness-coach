@@ -73,7 +73,7 @@ export default function Home() {
             <Utensils className="h-6 w-6 text-purple-400" />
           </div>
           <h3 className="text-xl font-bold mb-2">Diet Mechanics</h3>
-          <p className="text-slate-400">Keto, Vegan, or Bulking? We calculate the macros so you don't have to.</p>
+          <p className="text-slate-400">Keto, Vegan, or Bulking? We calculate the macros so you don&apos;t have to.</p>
         </div>
 
         {/* Feature 3 */}
@@ -82,7 +82,7 @@ export default function Home() {
             <Sparkles className="h-6 w-6 text-pink-400" />
           </div>
           <h3 className="text-xl font-bold mb-2">AI Visualization</h3>
-          <p className="text-slate-400">Don't know the exercise? We generate a visual reference instantly.</p>
+          <p className="text-slate-400">Don&apos;t know the exercise? We generate a visual reference instantly.</p>
         </div>
       </section>
 

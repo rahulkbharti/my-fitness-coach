@@ -104,8 +104,8 @@ function convertToWav(pcmData: Buffer, mimeType: string) {
 function parseMimeType(mimeType: string) {
   // Example: "audio/L16;rate=24000"
   const parts = mimeType.split(";").map((s) => s.trim());
-  const fileTypePart = parts[0]; // "audio/L16"
-  const [_, format] = fileTypePart.split("/");
+  // const fileTypePart = parts[0]; // "audio/L16"
+  // const [_, format] = fileTypePart.split("/");
 
   const options: WavConversionOptions = {
     numChannels: 1,
