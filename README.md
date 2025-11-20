@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Fitness Coach
+
+A Next.js app scaffolded with create-next-app. Use it as a foundation for a personalized fitness planning and progress tracking web app.
+
+## Features (suggested)
+
+- Responsive App Router UI with TypeScript
+- Plan, log, and review workouts
+- Basic auth and profile pages (add as needed)
+- Font optimization via next/font with Geist
+
+## Tech Stack
+
+- Next.js (App Router)
+- React, TypeScript
+- ESLint
+- next/font (Geist)
+
+## Prerequisites
+
+- Node.js 20+ and npm
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 and edit app/page.tsx. Hot reload is enabled.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build and start:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
+
+Lint:
+
+```bash
+npm run lint
+```
+
+## Project Structure (default)
+
+- app/ — routes, layouts, pages
+- public/ — static assets
+- package.json — scripts and deps
+- next.config.\* — Next.js config
+- tsconfig.json — TypeScript config
+
+## Environment Variables
+
+- Create .env.local for any secrets (e.g., NEXT_PUBLIC_API_URL). Never commit secrets.
+
+## Deployment
+
+The easiest way to deploy is Vercel:
+
+- https://vercel.com/new
+- Next.js deployment docs: https://nextjs.org/docs/app/building-your-application/deploying
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js Docs: https://nextjs.org/docs
+- Learn Next.js: https://nextjs.org/learn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Issues and pull requests are welcome.
 
-## Deploy on Vercel
+<!-- ## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add your license (e.g., MIT) in LICENSE. -->

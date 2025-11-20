@@ -24,10 +24,10 @@ export default function UserDetailsForm() {
         resolver: zodResolver(userProfileSchema),
         defaultValues: {
             name: "",
-            age: 25,
+            age: 23,
             gender: "Male",
             height: 170,
-            weight: 70,
+            weight: 66,
             goal: "Muscle Gain",
             level: "Beginner",
             location: "Gym",
@@ -278,12 +278,13 @@ export default function UserDetailsForm() {
                             Next Step <ChevronRight className="w-5 h-5 ml-1" />
                         </button>
                     ) : (
-                        // FIXED: Moved handleSubmit here. It ONLY fires when this button is clicked.
+
                         <button
                             type="button"
                             onClick={handleSubmit(onFinalSubmit)}
                             disabled={isLoading}
                             className="flex items-center px-8 py-3 rounded-lg bg-linear-to-r from-blue-500 to-purple-500 text-white font-bold hover:opacity-90 transition-opacity"
+
                         >
                             {isLoading ? (
                                 <span className="flex items-center animate-pulse">Generating Plan...</span>

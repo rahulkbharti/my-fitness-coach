@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Dumbbell, Utensils, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Assuming shadcn/ui
+import { Button } from "@/components/ui/button";
 // import { google } from '@ai-sdk/google';
 // import { experimental_generateImage as generateImage } from 'ai';
 // import { generateVoiceAction } from "@/actions/generateVoice";
@@ -32,7 +32,7 @@ export default function Home() {
           Powered by GPT-4o & Gemini
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparentbg-linear-to-rfrom-blue-400 via-purple-500 to-pink-500">
           The Future of Fitness <br /> is Personalized.
         </h1>
 
@@ -43,7 +43,7 @@ export default function Home() {
 
         <div className="flex gap-4">
           <Link href="/generate">
-            <Button size="lg" className="text-lg h-14 px-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 transition-all flex items-center">
+            <Button size="lg" className="text-lg h-14 px-8 rounded-full bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 transition-all flex items-center">
               Build My Plan <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
